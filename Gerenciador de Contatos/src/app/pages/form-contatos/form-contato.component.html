@@ -1,0 +1,29 @@
+<div class="pagina-form-contato">
+  <h2>{{ isEditando ? 'Editar Contato' : 'Adicionar Novo Contato' }}</h2>
+
+  <div *ngIf="mensagem" [class]="['mensagem-feedback', 'mensagem-' + mensagemTipo]" role="alert" aria-live="polite">
+    {{ mensagem }}
+  </div>
+
+  <form (ngSubmit)="salvarContato()" class="formulario-contato">
+    <div class="form-grupo">
+      <label for="nomeContato">Nome:</label>
+      <input type="text" id="nomeContato" name="nomeContato" [(ngModel)]="contato.nome" required placeholder="Nome completo" aria-required="true">
+    </div>
+    <div class="form-grupo">
+      <label for="emailContato">Email:</label>
+      <input type="email" id="emailContato" name="emailContato" [(ngModel)]="contato.email" required placeholder="email@exemplo.com" aria-required="true">
+    </div>
+    <div class="form-grupo">
+      <label for="telefoneContato">Telefone:</label>
+      <input type="tel" id="telefoneContato" name="telefoneContato" [(ngModel)]="contato.telefone" required placeholder="(XX) XXXX-XXXX" aria-required="true">
+    </div>
+
+    <button type="submit" class="btn btn-primario" [disabled]="!contato.nome.trim() || !contato.email.trim() || !contato.telefone.trim()" aria-label="Salvar contato">
+      <i class="fas fa-save"></i> {{ isEditando ? 'Salvar Edição' : 'Adicionar Contato' }}
+    </button>
+    <button type="button" class="btn btn-secundario" (click)="router.navigate(['/contatos'])" style="margin-left: 10px;" aria-label="Voltar para a lista de contatos">
+      <i class="fas fa-arrow-left"></i> Voltar para Contatos
+    </button>
+  </form>
+</div>

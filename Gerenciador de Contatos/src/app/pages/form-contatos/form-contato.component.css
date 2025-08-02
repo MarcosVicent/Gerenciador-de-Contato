@@ -1,0 +1,13 @@
+.pagina-form-contato h2 {
+  color: var(--cor-primaria);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formulario-contato {
+  background-color: var(--cor-fundo);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--cor-sombra);
+  margin-bottom: 30px;
+}

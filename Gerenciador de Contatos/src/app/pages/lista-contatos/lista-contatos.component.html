@@ -1,0 +1,32 @@
+<div class="pagina-contatos">
+  <h2>Meus Contatos</h2>
+
+  <div class="acoes-lista">
+    <button class="btn btn-primario" routerLink="/contatos/novo" aria-label="Adicionar novo contato">
+      <i class="fas fa-plus-circle"></i> Adicionar Novo Contato
+    </button>
+  </div>
+
+  <div *ngIf="mensagem" [class]="['mensagem-feedback', 'mensagem-' + mensagemTipo]" role="alert" aria-live="polite">
+    {{ mensagem }}
+  </div>
+
+  <ul class="lista-itens" role="list">
+    <li *ngFor="let contato of contatos" class="item-lista" [attr.aria-label]="'Contato: ' + contato.nome + ', Telefone: ' + contato.telefone + ', Email: ' + contato.email">
+      <div class="info-contato">
+        <strong>{{ contato.nome }}</strong><br>
+        Telefone: {{ contato.telefone }}<br>
+        Email: {{ contato.email }}
+      </div>
+      <div class="item-acoes">
+        <button class="btn btn-secundario" (click)="editarContato(contato.id)" aria-label="Editar contato">
+          <i class="fas fa-edit"></i> Editar
+        </button>
+        <button class="btn btn-erro" (click)="removerContato(contato.id)" aria-label="Remover contato">
+          <i class="fas fa-trash-alt"></i> Remover
+        </button>
+      </div>
+    </li>
+    <li *ngIf="contatos.length === 0" class="item-lista item-vazio" aria-live="polite">Nenhum contato cadastrado.</li>
+  </ul>
+</div>

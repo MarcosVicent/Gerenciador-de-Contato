@@ -1,0 +1,26 @@
+.pagina-contatos h2 {
+  color: var(--cor-primaria);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.acoes-lista {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.item-vazio {
+    justify-content: center;
+    font-style: italic;
+    color: var(--cor-secundaria);
+}
+
+.info-contato {
+    flex-grow: 1;
+}
+
+.info-contato strong {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
